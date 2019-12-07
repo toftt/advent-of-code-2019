@@ -1,6 +1,8 @@
-const fs = require("fs");
+export {};
 
-const input = fs.readFileSync("day-6/input", "utf8");
+import { readFileSync } from "fs";
+
+const input = readFileSync("day-6/input", "utf8");
 const lines = input.split("\n").filter(Boolean);
 
 const orbitInput = lines.map((line: string) => line.split(")"));
@@ -12,7 +14,6 @@ orbitInput.forEach(([target, orbiter]) => {
 
   orbits.get(target).push(orbiter);
 });
-
 
 const getOrbiterCount = (name: string, depth: number = 0) => {
   if (!orbits.has(name)) {
